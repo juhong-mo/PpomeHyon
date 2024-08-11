@@ -36,7 +36,7 @@ public class Hyon : MonoBehaviour
         state = State.Idle;
         action = Action.Nothing;
 
-        spd = 0.03f;
+        spd = 0.17f;
 
         offset = transform.position - cam.position;
 

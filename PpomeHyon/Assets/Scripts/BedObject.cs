@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ToyboxObject : MonoBehaviour
+public class BedObject : MonoBehaviour
 {
+    public string BedScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class ToyboxObject : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        SceneManager.LoadScene(BedScene);
     }
 }

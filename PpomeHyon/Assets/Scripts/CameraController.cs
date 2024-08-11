@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
-    private const float DirectionForceReduceRate = 0.935f;
+    private const float DirectionForceReduceRate = 0.5f;
     private const float DirectionForceMin = 0.001f;
 
     private bool _userMoveInput;
