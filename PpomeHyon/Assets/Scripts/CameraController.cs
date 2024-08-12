@@ -15,10 +15,18 @@ public class CameraController : MonoBehaviour
 
     private Camera _camera;
 
+    private Vector2 mapSize;
+
+    public GameObject Background;
+
+    private float lx;
+    private float clampX;
+
     // Start is called before the first frame update
     void Start()
     {
         _camera = GetComponent<Camera>();
+        mapSize = Background.transform.localScale;
     }
 
     // Update is called once per frame
@@ -30,6 +38,9 @@ public class CameraController : MonoBehaviour
             ReduceDirectionForce();
             UpdateCameraPosition();
         }
+
+        lx = mapSize.x - _camera.transform.localScale.x;
+        //clampX = Mathf.Clamp(transform.position.x)
     }
 
 
@@ -104,8 +115,8 @@ public class CameraController : MonoBehaviour
         var currentPos = transform.position;
         var targetPos = new Vector3(currentPos.x + _directionForce.x, currentPos.y, currentPos.z);
 
-        float minX = -100;
-        float maxX = 100;
+        float minX = -10;
+        float maxX = 10;
 
         targetPos.x = Mathf.Clamp(targetPos.x, minX, maxX);
 

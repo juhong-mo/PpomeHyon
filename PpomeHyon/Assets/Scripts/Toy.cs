@@ -18,18 +18,21 @@ public class Toy : MonoBehaviour
         Debug.Log(Screen.width);
         Debug.Log(Screen.height);
 
-        float randomX = Random.Range(0, Screen.width);
-        float randomY = Random.Range(0, Screen.height);
+        float sizeX = GetComponent<Collider2D>().bounds.size.x;
+        float sizeY = GetComponent<Collider2D>().bounds.size.y;
 
-        float boxLeft = box.transform.position.x - box.GetComponent<Collider2D>().bounds.size.x / 2;
-        float boxRight = box.transform.position.x + box.GetComponent<Collider2D>().bounds.size.x / 2;
-        float boxTop = box.transform.position.y + box.GetComponent<Collider2D>().bounds.size.y / 2;
-        float boxBottom = box.transform.position.y - box.GetComponent<Collider2D>().bounds.size.y / 2;
+        float randomX = Random.Range(sizeX * 3, Screen.width - sizeX * 3);
+        float randomY = Random.Range(sizeY * 3, Screen.height - sizeY * 3);
 
-        float left = randomX - GetComponent<Collider2D>().bounds.size.x / 2;
-        float right = randomX + GetComponent<Collider2D>().bounds.size.x / 2;
-        float top = randomY + GetComponent<Collider2D>().bounds.size.y / 2;
-        float bottom = randomY - GetComponent<Collider2D>().bounds.size.y / 2;
+        float boxLeft = box.transform.position.x - box.GetComponent<Collider2D>().bounds.size.x * 2;
+        float boxRight = box.transform.position.x + box.GetComponent<Collider2D>().bounds.size.x * 2;
+        float boxTop = box.transform.position.y + box.GetComponent<Collider2D>().bounds.size.y * 2;
+        float boxBottom = box.transform.position.y - box.GetComponent<Collider2D>().bounds.size.y * 2;
+
+        float left = randomX - sizeX / 2;
+        float right = randomX + sizeX / 2;
+        float top = randomY + sizeY / 2;
+        float bottom = randomY - sizeY / 2;
 
         while(left < boxRight && right > boxLeft)
         {
